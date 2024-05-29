@@ -1,6 +1,7 @@
 import { createContext  } from "react";
 import {useState} from "react";
 import { baseUrl } from "../../baseUrl";
+import PropTypes from "prop-types"; // Importing PropTypes
 //first step done by creating the Context 
 //since you want to use the context then you need to expose the context to the component you want to send it.
 
@@ -11,13 +12,14 @@ export const AppContext=createContext();
 export default function AppContextProvider({children}){
     const [Loading,setLoading]=useState(false);
     const [posts,setPosts] = useState([]);
-    const [Page,setPage]=useState(1);
+    const [page,setPage]=useState(1);
     const [TotalPages,setTotalPages] = useState(null);
 
     //data Filling 
     async  function fetchBlogPosts(page=1){
         setLoading(true);
         let url=`${baseUrl}?page=${page}`
+        console.log("Printing the Api URl",url);
         try{
             const result=await fetch(url)
             // convert it into Json format
@@ -46,7 +48,7 @@ export default function AppContextProvider({children}){
         setLoading,
         posts,
         setPosts,
-        Page,
+        page,
         setPage,
         TotalPages,
         setTotalPages,
@@ -60,3 +62,9 @@ export default function AppContextProvider({children}){
         {children}
     </AppContext.Provider>
 }
+
+
+// Define PropTypes
+AppContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
