@@ -3,7 +3,10 @@ import Blogs from "./components/Blogs"
 import { useContext, useEffect } from "react"
 import Pagination from "./components/Pagination"
 import { AppContext } from "./context/AppContext"
+import { Route,Routes } from "react-router-dom"
 
+const [searchParams,setSearchParams]=useSearchParams();
+const location =useLocation()
 function App() {
   const {fetchBlogPosts} = useContext(AppContext)
   useEffect(() => 
@@ -11,13 +14,12 @@ function App() {
       fetchBlogPosts()
     },[]);
       return (
-    <>
-      <div className="flex flex-col items-center justify-center w-full h-full gap-y-1">
-        <Header/>
-        <Blogs />
-        <Pagination />
-      </div>
-    </>
+     <Route >
+      <Route path="/" element={<Home/>}/>
+      <Route path="/blog/:blogId" element={<BlogPage/>}/>
+      <Route path="/tags/:tag" element={<TagPage/>}/>
+      <Route path="/categories/:category" element={<CategoryPage/>}/>
+     </Route>
   )
 }
 
