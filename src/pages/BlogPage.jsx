@@ -46,11 +46,11 @@ function BlogPage() {
     return (
         <div>
             <Header />
-            <div className="flex justify-center">
+            <div className="flex justify-center text-black bg-white dark:text-white dark:bg-black">
                 <div className="w-11/12 max-w-[680px] py-1 flex flex-col gap-y-5 mb-[70px]">
                     <div className="mt-20">
                         <button
-                            className="px-4 py-1 border rounded-md hover:shadow-2xl hover:bg-gray-100"
+                            className="px-4 py-1 border rounded-md hover:shadow-2xl hover:bg-gray-100 dark:hover:bg-blue-500 dark:hover:text-white"
                             onClick={() => navigate(-1)}>
                             Back
                         </button>
@@ -59,13 +59,13 @@ function BlogPage() {
                         Loading ? (
                           <Spinner />
                         ) : dataFetched && !blog ? (
-                            <div>
+                            <div className="w-full h-screen bg-white dark:bg-black">
                                 <p>No Blog Found</p>
 
                             </div>
                         ) : (
                             blog && (
-                                <div>
+                                <div className="bg-white dark:bg-black">
                                     <BlogDetails post={blog} />
                                     <h2 className="text-3xl font-bold mt-7">Related Blogs</h2>
                                     <div className="mt-7">

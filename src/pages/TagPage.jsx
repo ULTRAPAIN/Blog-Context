@@ -42,7 +42,7 @@ function TagPage() {
     return (
         <div>
             <Header />
-            <div className="flex justify-center">
+            <div className="flex justify-center text-black bg-white dark:bg-black dark:text-white">
                 <div className="w-11/12 max-w-[680px] py-1 flex flex-col gap-y-5 mb-[70px]">
                     <div className="flex mt-20 gap-x-5">
                         <button 
@@ -56,7 +56,7 @@ function TagPage() {
                     {Loading ? (
                     <Spinner/>
                     ) : dataFetched && blogs.length === 0 ? (
-                        <div>
+                        <div className="w-full h-screen">
                             <p>No Blogs Found</p>
                         </div>
                     ) : (

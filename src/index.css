@@ -16,3 +16,13 @@
        transform: rotate(360deg);
     }
  }
+ 
+
+ .spinner1 {
+   width: 80px;
+   height: 80px;
+   border: 17.2px white double;
+   border-left-style: solid;
+   border-radius: 50%;
+   animation: spinner-aib1d7 1s infinite linear;
+}

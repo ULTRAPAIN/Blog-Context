@@ -4,7 +4,7 @@ import Pagination from '../components/Pagination'
 
 function Home() {
     return (
-        <div>
+        <div className='duration-500 bg-white dark:bg-black transition-color'>
             <Header />
             <div>
                 <Blogs />

@@ -8,12 +8,15 @@ import { AppContext } from "./context/AppContext"
 import { Route,Routes } from "react-router-dom"
 import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
+import {useState} from "react"; 
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
+  
 const [searchParams,setSearchParams]=useSearchParams();
 const location =useLocation()
   const {fetchBlogPosts} = useContext(AppContext)
+  
   useEffect(() => 
     {
      const page =searchParams.get("page"?? 1);
@@ -31,12 +34,14 @@ else{
 }
     },[location.pathname, location.search]);
       return (
+      <ThemeProvider>
      <Routes >
       <Route path="/" element={<Home/>}/>
       <Route path="/blog/:blogId" element={<BlogPage/>}/>
       <Route path="/tags/:tag" element={<TagPage/>}/>
       <Route path="/categories/:category" element={<CategoryPage/>}/>
      </Routes>
+     </ThemeProvider>
   )
 }
 

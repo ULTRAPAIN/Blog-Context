@@ -9,14 +9,14 @@ function Blogs() {
     console.log(posts);
     return (
         <>
-        <div className="flex justify-center">
+        <div className="flex justify-center bg-white dark:bg-black">
         <div className="mt-20 w-11/12 max-w-[680px] py-3 flex flex-col gap-y-7 mb-[70px]">
             {
                 Loading?(<Spinner/>):
                 (
                     posts.length===0?
                     (<div
-                     className="flex items-center justify-center w-full h-screen text-6xl font-semibold ">No Post Found</div>):
+                     className="flex items-center justify-center w-full h-screen text-6xl font-semibold text-black dark:text-white ">No Post Found</div>):
                     (posts.map((post)=>
                     (
 
